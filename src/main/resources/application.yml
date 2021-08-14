@@ -1,0 +1,23 @@
+server:
+  port: 9296
+
+spring:
+  application:
+    name: CONFIG-SERVER
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/shabbirdwd53/config-server
+          default-label: main
+          clone-on-start: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: eureka-0
+  client:
+    register-with-eureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://eureka-0.eureka.default.svc.cluster.local:8761/eureka
